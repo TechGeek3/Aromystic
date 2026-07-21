@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "/Aromystic/",
             "outputPath": "dist/aromystic",
             "index": "src/index.html",
             "browser": "src/main.ts",
