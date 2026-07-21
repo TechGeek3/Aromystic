@@ -1,0 +1,281 @@
+.detail {
+  padding: 2rem 0 4rem;
+}
+
+.crumbs {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.6rem;
+}
+
+.crumbs a:hover {
+  color: var(--gold-deep);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.detail-media {
+  position: relative;
+  border-radius: 24px;
+  height: 460px;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
+  background: linear-gradient(160deg,
+    color-mix(in srgb, var(--acc) 20%, white),
+    color-mix(in srgb, var(--acc) 7%, white));
+}
+
+.big-bottle {
+  width: 220px;
+  height: 340px;
+  animation: floaty 5s ease-in-out infinite;
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 50px;
+}
+
+.badge-new {
+  background: var(--lavender-deep);
+}
+
+.coll-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+
+.detail-info h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0.5rem 0 0.4rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 0.8rem;
+}
+
+.meta-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.rating {
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.dot {
+  color: var(--lavender-deep);
+}
+
+.desc {
+  color: var(--ink);
+  line-height: 1.7;
+  margin: 1.4rem 0;
+}
+
+.size-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.lbl {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.size-pill {
+  border: 1.5px solid var(--gold);
+  border-radius: 50px;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.size-pill.active {
+  background: var(--gold);
+  color: #fff;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--lavender-deep);
+  border-radius: 50px;
+  padding: 0.3rem 0.6rem;
+}
+
+.qty button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--lavender);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.add-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.assur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* Notes pyramid */
+.notes {
+  margin: 4rem 0;
+}
+
+.section-head {
+  margin-bottom: 2rem;
+}
+
+.section-head.center {
+  text-align: center;
+}
+
+.section-head h2 {
+  margin: 0.3rem 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.note-layer {
+  border-radius: 18px;
+  padding: 1.4rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.note-layer.top {
+  width: 60%;
+  background: linear-gradient(135deg, var(--blush), var(--lavender));
+}
+
+.note-layer.heart {
+  width: 78%;
+  background: linear-gradient(135deg, var(--lavender), var(--powder));
+}
+
+.note-layer.base {
+  width: 96%;
+  background: linear-gradient(135deg, var(--powder), var(--mint));
+}
+
+.layer-lbl {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold-deep);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.note-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.note-pills span {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Related */
+.related {
+  margin-top: 4rem;
+}
+
+.rel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.not-found {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.not-found span {
+  font-size: 3.5rem;
+}
+
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .detail-media {
+    height: 340px;
+  }
+  .note-layer.top,
+  .note-layer.heart,
+  .note-layer.base {
+    width: 100%;
+  }
+  .rel-grid {
+    grid-template-columns: 1fr;
+  }
+}

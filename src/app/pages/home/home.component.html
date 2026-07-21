@@ -1,0 +1,130 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy fade-up">
+      <span class="eyebrow">Aromystic · Extrait de Parfum</span>
+      <h1>The Scent<br />of Secrets</h1>
+      <p>
+        Five artisan extraits that whisper what words can't. Each bottle holds a
+        hidden story — discover the one that's yours.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/shop" class="btn btn-primary">Shop the Collection</a>
+        <a routerLink="/discover" class="btn btn-ghost-light">Discover Your Scent</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>5</strong><span>Signature scents</span></div>
+        <div><strong>100%</strong><span>Cruelty-free</span></div>
+        <div><strong>4.8★</strong><span>Avg. rating</span></div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up">
+      <img class="hero-logo" src="logo.png" alt="Aromystic — The Scent of Secrets" />
+      <span class="float-note n1">Azure Noir 🌌</span>
+      <span class="float-note n2">Crimson Crystal 💎</span>
+      <span class="float-note n3">Ocean Drift 🌊</span>
+    </div>
+  </div>
+</section>
+
+<!-- Perks strip -->
+<section class="perks">
+  <div class="container perks-grid">
+    @for (perk of perks; track perk.title) {
+      <div class="perk">
+        <span class="perk-icon">{{ perk.icon }}</span>
+        <div>
+          <strong>{{ perk.title }}</strong>
+          <p>{{ perk.text }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Collections -->
+<section class="section container">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Curated Worlds</span>
+      <h2>Explore the Collections</h2>
+    </div>
+    <a routerLink="/collections" class="see-all">View all →</a>
+  </div>
+  <div class="coll-grid">
+    @for (collection of collections; track collection.id) {
+      <app-collection-tile [collection]="collection" />
+    }
+  </div>
+</section>
+
+<!-- Bestsellers -->
+<section class="section bestsellers">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Most Loved</span>
+        <h2>Bestselling Secrets</h2>
+      </div>
+      <a routerLink="/shop" class="see-all">Shop all →</a>
+    </div>
+    <div class="prod-grid">
+      @for (product of bestsellers; track product.id) {
+        <app-product-tile [product]="product" />
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Discover CTA -->
+<section class="section container">
+  <div class="quiz-cta">
+    <div class="quiz-copy">
+      <span class="eyebrow">Not sure where to start?</span>
+      <h2>Let us read your scent secrets</h2>
+      <p>Answer three playful questions and we'll match you with your perfect fragrance in under a minute.</p>
+      <a routerLink="/discover" class="btn btn-primary">Take the Scent Quiz</a>
+    </div>
+    <div class="quiz-emoji">🔮</div>
+  </div>
+</section>
+
+<!-- New arrivals -->
+<section class="section container">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Fresh Drops</span>
+      <h2>New Arrivals</h2>
+    </div>
+    <a routerLink="/shop" class="see-all">Shop all →</a>
+  </div>
+  <div class="prod-grid">
+    @for (product of newArrivals; track product.id) {
+      <app-product-tile [product]="product" />
+    }
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-head center">
+      <div>
+        <span class="eyebrow">Whispers from our community</span>
+        <h2>Loved &amp; Worn</h2>
+      </div>
+    </div>
+    <div class="test-grid">
+      @for (t of testimonials; track t.name) {
+        <div class="test-card fade-up">
+          <span class="test-emoji">{{ t.emoji }}</span>
+          <p>“{{ t.text }}”</p>
+          <strong>— {{ t.name }}</strong>
+          <span class="stars">★★★★★</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

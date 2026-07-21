@@ -1,0 +1,73 @@
+<section class="story-hero">
+  <div class="container story-hero-inner">
+    <div class="fade-up">
+      <span class="eyebrow">Our Story</span>
+      <h1>Born from a<br />whispered secret</h1>
+      <p>
+        Aromystic began with a simple belief — that the right scent doesn't just
+        smell beautiful, it tells the world who you are without saying a word.
+        We craft fragrances for the moments in between: the secrets, the
+        anticipation, the quiet magic of being unforgettable.
+      </p>
+    </div>
+    <div class="story-emoji fade-up">🔮</div>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="mission">
+    <span class="eyebrow">Our Mission</span>
+    <h2>To bottle the feeling of a secret worth keeping.</h2>
+    <p>
+      As a young house, we're unafraid to be different. No mass-market
+      compromises, no loud logos — just honest, artisan perfumery in soft
+      pastel bottles designed to sit beautifully on your vanity and closer to
+      your heart.
+    </p>
+  </div>
+</section>
+
+<section class="section values-section">
+  <div class="container">
+    <div class="vhead">
+      <span class="eyebrow">What we stand for</span>
+      <h2>Our Values</h2>
+    </div>
+    <div class="values-grid">
+      @for (v of values; track v.title) {
+        <div class="value-card fade-up">
+          <span class="v-icon">{{ v.icon }}</span>
+          <h3>{{ v.title }}</h3>
+          <p>{{ v.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="vhead">
+    <span class="eyebrow">The Craft</span>
+    <h2>How a secret becomes a scent</h2>
+  </div>
+  <div class="steps">
+    @for (s of steps; track s.no) {
+      <div class="step fade-up">
+        <span class="step-no">{{ s.no }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="story-cta">
+  <div class="container">
+    <h2>Ready to find your secret?</h2>
+    <p>Take our quiz or browse the full collection.</p>
+    <div class="cta-btns">
+      <a routerLink="/discover" class="btn btn-primary">Discover Your Scent</a>
+      <a routerLink="/shop" class="btn btn-ghost">Shop All</a>
+    </div>
+  </div>
+</section>

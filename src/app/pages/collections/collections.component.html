@@ -1,0 +1,27 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Curated Worlds</span>
+    <h1>Our Collections</h1>
+    <p>Four moods, four secrets. Find the world that feels like you.</p>
+  </div>
+</section>
+
+<div class="container coll-page">
+  @for (c of collections; track c.id) {
+    <section class="coll-block" [id]="c.id">
+      <div class="coll-banner" [style.background]="c.gradient">
+        <span class="c-emoji">{{ c.emoji }}</span>
+        <div>
+          <span class="eyebrow">{{ c.subtitle }}</span>
+          <h2>{{ c.name }}</h2>
+          <p>{{ c.description }}</p>
+        </div>
+      </div>
+      <div class="prod-grid">
+        @for (product of productsOf(c.id); track product.id) {
+          <app-product-tile [product]="product" />
+        }
+      </div>
+    </section>
+  }
+</div>

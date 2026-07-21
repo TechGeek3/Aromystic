@@ -1,0 +1,51 @@
+<section class="quiz-hero">
+  <div class="container">
+    <span class="eyebrow">Discover Your Scent</span>
+    <h1>What secret do you carry?</h1>
+    <p>Three quick questions to reveal the fragrance written in your stars.</p>
+  </div>
+</section>
+
+<section class="container quiz-body">
+  @if (!finished()) {
+    <div class="quiz-card fade-up">
+      <div class="progress">
+        <div class="progress-bar" [style.width.%]="progress()"></div>
+      </div>
+      <span class="step-count">Question {{ current() + 1 }} of {{ questions.length }}</span>
+
+      @if (questions[current()]; as q) {
+        <h2>{{ q.question }}</h2>
+        <div class="options">
+          @for (opt of q.options; track opt.label) {
+            <button class="option" (click)="choose(opt.family)">
+              <span class="opt-emoji">{{ opt.emoji }}</span>
+              <span>{{ opt.label }}</span>
+            </button>
+          }
+        </div>
+      }
+    </div>
+  } @else {
+    @if (result(); as r) {
+    <div class="result fade-up">
+      <span class="result-eyebrow">Your scent secret is...</span>
+      <h2>{{ r.family }}</h2>
+      <p class="result-text">
+        You're drawn to {{ r.family | lowercase }} fragrances — here are the Aromystic secrets made just for you.
+      </p>
+
+      <div class="result-grid">
+        @for (product of r.matches; track product.id) {
+          <app-product-tile [product]="product" />
+        }
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-ghost" (click)="restart()">Retake Quiz</button>
+        <a routerLink="/shop" class="btn btn-primary">Shop All Scents</a>
+      </div>
+    </div>
+    }
+  }
+</section>

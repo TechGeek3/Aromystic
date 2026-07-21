@@ -1,0 +1,82 @@
+<header class="nav">
+  <div class="nav-inner container">
+    <button class="burger" (click)="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <span class="logo-badge">
+        <img src="logo-mark.svg" alt="Aromystic" />
+      </span>
+      <span class="logo-text">
+        Aromystic
+        <small>the scent of secrets</small>
+      </span>
+    </a>
+
+    <nav class="links" [class.open]="menuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/shop" routerLinkActive="active" (click)="closeMenu()">Shop</a>
+      <a routerLink="/collections" routerLinkActive="active" (click)="closeMenu()">Collections</a>
+      <a routerLink="/our-story" routerLinkActive="active" (click)="closeMenu()">Our Story</a>
+      <a routerLink="/discover" routerLinkActive="active" (click)="closeMenu()">Discover Your Scent</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="icon-btn" aria-label="Search">🔍</button>
+      <button class="icon-btn" aria-label="Account">👤</button>
+      <button class="icon-btn cart-btn" (click)="toggleCart()" aria-label="Cart">
+        🛍️
+        @if (cart.count() > 0) {
+          <span class="cart-count">{{ cart.count() }}</span>
+        }
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (cartOpen()) {
+  <div class="drawer-overlay" (click)="toggleCart()"></div>
+  <aside class="drawer">
+    <div class="drawer-head">
+      <h3>Your Bag</h3>
+      <button class="icon-btn" (click)="toggleCart()" aria-label="Close">✕</button>
+    </div>
+
+    @if (cart.cartItems().length === 0) {
+      <div class="empty">
+        <span class="empty-emoji">🌸</span>
+        <p>Your bag is waiting for its first secret.</p>
+        <a routerLink="/shop" class="btn btn-primary" (click)="toggleCart()">Discover Scents</a>
+      </div>
+    } @else {
+      <div class="drawer-items">
+        @for (item of cart.cartItems(); track item.product.id) {
+          <div class="drawer-item">
+            <span class="di-bottle" [style.--acc]="item.product.accent"><app-bottle [accent]="item.product.accent" [label]="item.product.name.charAt(0)" /></span>
+            <div class="di-info">
+              <strong>{{ item.product.name }}</strong>
+              <span class="di-meta">{{ item.product.sizeMl }}ml · ${{ item.product.price }}</span>
+              <div class="qty">
+                <button (click)="cart.updateQuantity(item.product.id, item.quantity - 1)">−</button>
+                <span>{{ item.quantity }}</span>
+                <button (click)="cart.updateQuantity(item.product.id, item.quantity + 1)">+</button>
+              </div>
+            </div>
+            <button class="di-remove" (click)="cart.remove(item.product.id)" aria-label="Remove">✕</button>
+          </div>
+        }
+      </div>
+      <div class="drawer-foot">
+        <div class="subtotal">
+          <span>Subtotal</span>
+          <strong>${{ cart.total() }}</strong>
+        </div>
+        <button class="btn btn-primary checkout">Checkout</button>
+        <p class="note">Free shipping on secrets over $75 ✨</p>
+      </div>
+    }
+  </aside>
+}
+

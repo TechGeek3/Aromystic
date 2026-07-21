@@ -1,0 +1,143 @@
+.quiz-hero {
+  background: linear-gradient(160deg, var(--lavender), var(--mint));
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.quiz-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 0.5rem 0;
+}
+
+.quiz-hero p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.quiz-body {
+  padding: 3rem 0 5rem;
+}
+
+.quiz-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2.6rem;
+  box-shadow: var(--shadow);
+}
+
+.progress {
+  height: 8px;
+  background: var(--lavender);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  border-radius: 50px;
+  transition: width 0.4s ease;
+}
+
+.step-count {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 1rem 0 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quiz-card h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0.4rem 0 1.8rem;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--cream);
+  border: 1.5px solid transparent;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  border-color: var(--gold);
+  background: var(--white);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.opt-emoji {
+  font-size: 1.6rem;
+}
+
+/* Result */
+.result {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.result-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.75rem;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.result h2 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  margin: 0.4rem 0 0.6rem;
+  background: linear-gradient(135deg, var(--gold), var(--lavender-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.result-text {
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0 auto 2.4rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+}

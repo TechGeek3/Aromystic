@@ -1,0 +1,53 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">The Full Wardrobe</span>
+    <h1>Shop All Fragrances</h1>
+    <p>Five signature extraits and a discovery set — each ready to become yours.</p>
+  </div>
+</section>
+
+<section class="container shop-body">
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Scent Family</span>
+      <div class="chips">
+        @for (f of families; track f) {
+          <button class="chip" [class.active]="activeFamily() === f" (click)="setFamily(f)">{{ f }}</button>
+        }
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">For</span>
+      <div class="chips">
+        @for (g of genders; track g) {
+          <button class="chip" [class.active]="activeGender() === g" (click)="setGender(g)">{{ g }}</button>
+        }
+      </div>
+    </div>
+
+    <div class="filter-group sort">
+      <span class="filter-label">Sort by</span>
+      <select (change)="onSort($event)">
+        @for (s of sorts; track s.id) {
+          <option [value]="s.id">{{ s.label }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <p class="count">{{ products().length }} fragrance{{ products().length === 1 ? '' : 's' }}</p>
+
+  @if (products().length > 0) {
+    <div class="prod-grid">
+      @for (product of products(); track product.id) {
+        <app-product-tile [product]="product" />
+      }
+    </div>
+  } @else {
+    <div class="no-results">
+      <span>🕯️</span>
+      <p>No secrets match those filters — try loosening them.</p>
+    </div>
+  }
+</section>

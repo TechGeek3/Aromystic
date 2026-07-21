@@ -1,0 +1,111 @@
+@if (product(); as p) {
+  <section class="container detail">
+    <nav class="crumbs">
+      <a routerLink="/">Home</a> ›
+      <a routerLink="/shop">Shop</a> ›
+      <span>{{ p.name }}</span>
+    </nav>
+
+    <div class="detail-grid">
+      <div class="detail-media" [style.--acc]="p.accent">
+        <app-bottle class="big-bottle" [accent]="p.accent" [label]="p.name.charAt(0)" />
+        @if (p.bestseller) { <span class="badge">Bestseller</span> }
+        @else if (p.isNew) { <span class="badge badge-new">New</span> }
+      </div>
+
+      <div class="detail-info">
+        @if (collection(); as c) {
+          <a class="coll-link" routerLink="/collections" [fragment]="c.id">{{ c.emoji }} {{ c.name }}</a>
+        }
+        <h1>{{ p.name }}</h1>
+        <p class="tagline">{{ p.tagline }}</p>
+        <div class="meta-row">
+          <span class="rating">★ {{ p.rating }}</span>
+          <span class="dot">·</span>
+          <span>{{ p.family }}</span>
+          <span class="dot">·</span>
+          <span>{{ p.gender }}</span>
+        </div>
+
+        <p class="desc">{{ p.description }}</p>
+
+        <div class="size-row">
+          <span class="lbl">Size</span>
+          <span class="size-pill active">{{ p.sizeMl }}ml</span>
+        </div>
+
+        <div class="price-row">
+          <span class="price">${{ p.price }}</span>
+          <div class="qty">
+            <button (click)="dec()" aria-label="Decrease">−</button>
+            <span>{{ quantity() }}</span>
+            <button (click)="inc()" aria-label="Increase">+</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary add-btn" (click)="addToCart()">
+          {{ added() ? 'Added to bag ✓' : 'Add to Bag' }}
+        </button>
+
+        <div class="assur">
+          <span>🚚 Free shipping over $75</span>
+          <span>↩️ 30-day returns</span>
+          <span>🎁 Gift wrapped</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes pyramid -->
+    <div class="notes">
+      <div class="section-head center">
+        <div>
+          <span class="eyebrow">The Composition</span>
+          <h2>Fragrance Notes</h2>
+        </div>
+      </div>
+      <div class="pyramid">
+        <div class="note-layer top">
+          <span class="layer-lbl">Top Notes</span>
+          <div class="note-pills">
+            @for (n of p.notes.top; track n) { <span>{{ n }}</span> }
+          </div>
+        </div>
+        <div class="note-layer heart">
+          <span class="layer-lbl">Heart Notes</span>
+          <div class="note-pills">
+            @for (n of p.notes.heart; track n) { <span>{{ n }}</span> }
+          </div>
+        </div>
+        <div class="note-layer base">
+          <span class="layer-lbl">Base Notes</span>
+          <div class="note-pills">
+            @for (n of p.notes.base; track n) { <span>{{ n }}</span> }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if (related().length > 0) {
+      <div class="related">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">You may also love</span>
+            <h2>From the same collection</h2>
+          </div>
+        </div>
+        <div class="rel-grid">
+          @for (r of related(); track r.id) {
+            <app-product-tile [product]="r" />
+          }
+        </div>
+      </div>
+    }
+  </section>
+} @else {
+  <section class="container not-found">
+    <span>🕯️</span>
+    <h2>This secret has slipped away</h2>
+    <p>We couldn't find that fragrance.</p>
+    <a routerLink="/shop" class="btn btn-primary">Back to Shop</a>
+  </section>
+}

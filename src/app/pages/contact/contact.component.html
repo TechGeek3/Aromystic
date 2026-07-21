@@ -1,0 +1,76 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Say Hello</span>
+    <h1>Let's share secrets</h1>
+    <p>Questions, love notes or wholesale enquiries — we'd adore hearing from you.</p>
+  </div>
+</section>
+
+<section class="container contact-body">
+  <div class="contact-grid">
+    <div class="contact-form-wrap">
+      @if (!submitted()) {
+        <form class="contact-form" (ngSubmit)="submit()" #f="ngForm">
+          <label>
+            <span>Name</span>
+            <input name="name" [(ngModel)]="name" required placeholder="Your name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" [(ngModel)]="email" required placeholder="you@email.com" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" [(ngModel)]="message" required placeholder="Tell us your secret..."></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Send Message</button>
+        </form>
+      } @else {
+        <div class="thanks">
+          <span>💌</span>
+          <h3>Message sent!</h3>
+          <p>Thank you, {{ name }}. Our team will whisper back within 24 hours.</p>
+        </div>
+      }
+    </div>
+
+    <aside class="contact-info">
+      <div class="info-card">
+        <span>📧</span>
+        <div><strong>Email</strong><p>hello&#64;aromystic.com</p></div>
+      </div>
+      <div class="info-card">
+        <span>📞</span>
+        <div><strong>Phone</strong><p>+1 (800) 555-SCENT</p></div>
+      </div>
+      <div class="info-card">
+        <span>📍</span>
+        <div><strong>Studio</strong><p>14 Petal Lane, Suite 3<br />New York, NY</p></div>
+      </div>
+      <div class="info-card">
+        <span>🕐</span>
+        <div><strong>Hours</strong><p>Mon–Fri · 9am–6pm EST</p></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="faq">
+    <div class="faq-head">
+      <span class="eyebrow">Good to know</span>
+      <h2>Frequently Asked</h2>
+    </div>
+    <div class="faq-list">
+      @for (item of faqs; track item.q; let i = $index) {
+        <div class="faq-item" [class.open]="openFaq() === i">
+          <button class="faq-q" (click)="toggle(i)">
+            {{ item.q }}
+            <span class="chev">{{ openFaq() === i ? '−' : '+' }}</span>
+          </button>
+          @if (openFaq() === i) {
+            <p class="faq-a">{{ item.a }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
