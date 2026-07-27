@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { CatalogService } from '../../core/data/catalog.service';
 import { ProductTileComponent } from '../../shared/product-tile/product-tile.component';
 import { CollectionTileComponent } from '../../shared/collection-tile/collection-tile.component';
+import { HeroBottle3dComponent } from '../../shared/hero-bottle-3d/hero-bottle-3d.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, ProductTileComponent, CollectionTileComponent],
+  imports: [RouterLink, ProductTileComponent, CollectionTileComponent, HeroBottle3dComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -30,3 +31,4 @@ export class HomeComponent {
     { name: 'Priya S.', text: 'The scent quiz matched me perfectly with Citrine Glow. Pure sunshine.', emoji: '🍋' },
   ];
 }
+

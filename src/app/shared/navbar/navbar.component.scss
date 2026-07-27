@@ -25,17 +25,16 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
   background: var(--navy);
   flex-shrink: 0;
   box-shadow: 0 0 0 1.5px rgba(201, 169, 106, 0.5);
 }
 
 .logo-badge img {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .logo-text {
@@ -327,5 +326,6 @@
     display: none;
   }
 }
+
 
 
